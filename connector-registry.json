@@ -1,0 +1,19 @@
+{
+  "schema": "nova.external_connector_registry.v1",
+  "authority": "ItsNotAILABS / NOVA",
+  "truth_line": "External AI tools are worker surfaces connected through contracts, proof gates, and artifact handoffs.",
+  "connectors": [
+    {
+      "id": "caffeine-mtp-bridge",
+      "path": "skills/caffeine-mtp-bridge/SKILL.md",
+      "surfaces": ["caffeine-cli", "caffeine-mtp", "caffeine-mcp"],
+      "proof_gates": ["auth status captured", "tool list captured", "artifact hash captured", "no fake deploy claim"]
+    },
+    {
+      "id": "grok-build-bridge",
+      "path": "skills/grok-build-bridge/SKILL.md",
+      "surfaces": ["grok-build", "mcp", "headless-agent"],
+      "proof_gates": ["plan captured", "approval boundary recorded", "diff captured", "tests captured"]
+    }
+  ]
+}
