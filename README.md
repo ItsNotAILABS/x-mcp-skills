@@ -2,11 +2,22 @@
 
 NOVA connector skills for external AI worker surfaces.
 
+## MDFUC Role
+
+`x-mcp-skills` owns MCP and external AI connector skills inside the Medina Development Federation Unified Catalog.
+
+It reports to:
+
+- `ItsNotAILABS/nexus` for repo-family registry.
+- `ItsNotAILABS/nova-intelligence` for runtime contracts.
+- `ItsNotAILABS/PhantomSDK` for SDK packaging and connector clients.
+
 ## Current Connectors
 
 - `skills/caffeine-mtp-bridge/SKILL.md` — Caffeine CLI and Caffeine MTP/MCP-style server bridge.
 - `skills/grok-build-bridge/SKILL.md` — Grok Build bridge for external planning, patching, review, MCP usage, and artifact handoff.
 - `connector-registry.json` — machine-readable registry for connector discovery.
+- `mdfuc.surface.json` — repo-family role and proof gates.
 
 ## Operating Law
 
