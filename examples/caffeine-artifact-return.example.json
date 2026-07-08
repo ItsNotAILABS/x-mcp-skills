@@ -1,0 +1,44 @@
+{
+  "schema": "nova.connector.caffeine.artifact_return.v1",
+  "provider": "caffeine",
+  "run_id": "caf-run-20260708-0001",
+  "task": "Generate a NOVA Build desktop app release packet",
+  "status": "completed",
+  "coherence": {
+    "score": 0.742,
+    "floor": 0.618,
+    "care_override": false
+  },
+  "artifacts": [
+    {
+      "kind": "zip",
+      "path": "releases/v0.3.8/NOVA_CODEX_FULL_RELEASE_v0.3.8.zip",
+      "mime_type": "application/zip",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "bytes": 787456,
+      "summary": "Full NOVA Codex release packet with runtime, docs, UI, and verification assets.",
+      "repo_target": "ItsNotAILABS/PhantomSDK",
+      "release_channel": "review"
+    },
+    {
+      "kind": "test_report",
+      "path": "verification/v0.3.8/TEST_REPORT.json",
+      "mime_type": "application/json",
+      "sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "summary": "Verification summary emitted by the runtime harness.",
+      "repo_target": "ItsNotAILABS/nova-intelligence",
+      "release_channel": "review"
+    }
+  ],
+  "logs": [
+    {
+      "stream": "event",
+      "content": "Caffeine returned governed artifact envelope for NOVA ingestion."
+    }
+  ],
+  "receipt": {
+    "merkle_root": "cafedeadbeef0000000000000000000000000000000000000000000000000000",
+    "sealed_at": "2026-07-08T00:00:00Z",
+    "attestations": ["Translatio", "Cura", "Medina"]
+  }
+}
