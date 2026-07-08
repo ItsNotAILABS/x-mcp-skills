@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://itsnotailabs.dev/schemas/caffeine-mtp-tool-list.schema.json",
+  "title": "Caffeine MTP Tool List",
+  "description": "Discovery contract for tools exposed by a Caffeine CLI or MTP server bridge into NOVA / Codex Phantasmatis.",
+  "type": "object",
+  "required": ["schema", "provider", "surface", "tools"],
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "nova.connector.caffeine.tool_list.v1"
+    },
+    "provider": {
+      "type": "string",
+      "const": "caffeine"
+    },
+    "surface": {
+      "type": "string",
+      "enum": ["cli", "mtp", "mcp", "desktop", "hybrid"]
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "tenant": {"type": "string"},
+        "workspace": {"type": "string"},
+        "operator": {"type": "string"},
+        "scope": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      }
+    },
+    "tools": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["name", "description", "input_schema", "output_modes", "risk"],
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9_.:-]+$"
+          },
+          "description": {"type": "string"},
+          "category": {
+            "type": "string",
+            "enum": ["code", "terminal", "filesystem", "project", "deploy", "search", "artifact", "collaboration", "custom"]
+          },
+          "input_schema": {
+            "type": "object",
+            "description": "JSON Schema accepted by the tool. Keep explicit enough for LLM-safe invocation."
+          },
+          "output_modes": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "enum": ["text", "json", "file", "patch", "zip", "event_stream", "terminal_log"]
+            }
+          },
+          "requires_confirmation": {"type": "boolean", "default": false},
+          "risk": {
+            "type": "string",
+            "enum": ["read_only", "workspace_write", "network", "deploy", "destructive"]
+          },
+          "house_route": {
+            "type": "string",
+            "enum": ["Genesis", "Substratum", "Cura", "Translatio", "Expressio", "Civitas", "Medina"]
+          },
+          "coherence_floor": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "default": 0.618
+          }
+        }
+      }
+    }
+  }
+}
