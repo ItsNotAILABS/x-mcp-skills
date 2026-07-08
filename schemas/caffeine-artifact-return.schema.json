@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://itsnotailabs.dev/schemas/caffeine-artifact-return.schema.json",
+  "title": "Caffeine Artifact Return",
+  "description": "Artifact envelope returned from Caffeine CLI/MTP into NOVA so files, logs, patches, and deployment outputs can be registered safely.",
+  "type": "object",
+  "required": ["schema", "provider", "run_id", "status", "artifacts", "receipt"],
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "nova.connector.caffeine.artifact_return.v1"
+    },
+    "provider": {
+      "type": "string",
+      "const": "caffeine"
+    },
+    "run_id": {
+      "type": "string",
+      "minLength": 8
+    },
+    "task": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["accepted", "running", "completed", "failed", "blocked", "needs_review"]
+    },
+    "coherence": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "score": {"type": "number", "minimum": 0, "maximum": 1},
+        "floor": {"type": "number", "minimum": 0, "maximum": 1},
+        "care_override": {"type": "boolean"}
+      }
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["kind", "path", "mime_type", "sha256"],
+        "additionalProperties": false,
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": ["source", "patch", "zip", "document", "image", "terminal_log", "manifest", "deployment_record", "test_report"]
+          },
+          "path": {"type": "string"},
+          "mime_type": {"type": "string"},
+          "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+          "bytes": {"type": "integer", "minimum": 0},
+          "summary": {"type": "string"},
+          "repo_target": {"type": "string"},
+          "release_channel": {
+            "type": "string",
+            "enum": ["scratch", "review", "release", "archive"]
+          }
+        }
+      }
+    },
+    "logs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["stream", "content"],
+        "additionalProperties": false,
+        "properties": {
+          "stream": {"type": "string", "enum": ["stdout", "stderr", "event", "audit"]},
+          "content": {"type": "string"}
+        }
+      }
+    },
+    "receipt": {
+      "type": "object",
+      "required": ["merkle_root", "sealed_at"],
+      "additionalProperties": true,
+      "properties": {
+        "merkle_root": {"type": "string"},
+        "sealed_at": {"type": "string", "format": "date-time"},
+        "attestations": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      }
+    }
+  }
+}
