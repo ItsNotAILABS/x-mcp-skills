@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">NOVA External AI Connector Control Plane</title>
+  <desc id="desc">Architecture diagram showing NOVA routing external AI worker surfaces through registry, policy, proof, and artifact import gates.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f8fbfd"/><stop offset="1" stop-color="#eef3f2"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#1b3140" flood-opacity="0.14"/></filter>
+    <style>.title{font:700 42px Inter,Arial,sans-serif;fill:#12222f}.sub{font:500 18px Inter,Arial,sans-serif;fill:#556774}.card{fill:#fff;stroke:#d5e0e4;stroke-width:1.5;rx:16;filter:url(#shadow)}.core{fill:#102836;rx:24;filter:url(#shadow)}.label{font:700 18px Inter,Arial,sans-serif;fill:#12222f}.body{font:500 14px Inter,Arial,sans-serif;fill:#566b78}.coreText{font:800 26px Inter,Arial,sans-serif;fill:#fff}.coreSub{font:500 14px Inter,Arial,sans-serif;fill:#cfe0e7}.line{stroke:#2d748c;stroke-width:2.5;fill:none;stroke-linecap:round}.dash{stroke:#7f98a4;stroke-width:2;fill:none;stroke-dasharray:7 9;stroke-linecap:round}.pill{fill:#ebf7f6;stroke:#b9d9d4;stroke-width:1;rx:14}.small{font:700 12px Inter,Arial,sans-serif;fill:#53676f}</style>
+  </defs>
+  <rect width="1200" height="760" fill="url(#bg)"/>
+  <text x="70" y="82" class="title">NOVA External AI Connector Control Plane</text>
+  <text x="72" y="116" class="sub">External AI systems become governed worker surfaces: discover, route, execute, import, prove, and launch.</text>
+
+  <rect x="420" y="248" width="360" height="220" class="core"/>
+  <text x="600" y="315" text-anchor="middle" class="coreText">NOVA Router</text>
+  <text x="600" y="347" text-anchor="middle" class="coreSub">policy • permission • proof • import</text>
+  <text x="600" y="378" text-anchor="middle" class="coreSub">MDFUC connector registry authority</text>
+  <rect x="492" y="406" width="216" height="30" class="pill"/>
+  <text x="600" y="426" text-anchor="middle" class="small">TRANSITUS HANDOFF GATE</text>
+
+  <rect x="72" y="178" width="292" height="122" class="card"/><text x="110" y="222" class="label">Caffeine CLI / MTP</text><text x="110" y="250" class="body">Build, preview, check, package,</text><text x="110" y="272" class="body">and return artifacts by receipt.</text>
+  <rect x="72" y="456" width="292" height="122" class="card"/><text x="110" y="500" class="label">Grok Build</text><text x="110" y="528" class="body">Planning, patching, review,</text><text x="110" y="550" class="body">and external build analysis.</text>
+  <rect x="836" y="178" width="292" height="122" class="card"/><text x="874" y="222" class="label">Claude / Cursor</text><text x="874" y="250" class="body">IDE assistance, code review,</text><text x="874" y="272" class="body">and artifact handoff lanes.</text>
+  <rect x="836" y="456" width="292" height="122" class="card"/><text x="874" y="500" class="label">Antigravity / Local CLI</text><text x="874" y="528" class="body">Terminal workers, repo tasks,</text><text x="874" y="550" class="body">and deployment surfaces.</text>
+
+  <path d="M364 239 C410 250 410 318 420 338" class="line"/><path d="M364 517 C410 498 410 410 420 378" class="line"/><path d="M836 239 C790 250 790 318 780 338" class="line"/><path d="M836 517 C790 498 790 410 780 378" class="line"/>
+  <path d="M600 248 C600 198 600 166 600 138" class="dash"/><path d="M600 468 C600 522 600 560 600 612" class="dash"/>
+
+  <rect x="424" y="52" width="352" height="104" class="card"/><text x="600" y="96" text-anchor="middle" class="label">Connector Registry</text><text x="600" y="124" text-anchor="middle" class="body">connector-registry.json + skill contracts</text>
+  <rect x="424" y="608" width="352" height="104" class="card"/><text x="600" y="652" text-anchor="middle" class="label">Proof + Artifact Import</text><text x="600" y="680" text-anchor="middle" class="body">task receipt • diff hash • validation report</text>
+
+  <rect x="72" y="680" width="1056" height="36" rx="18" fill="#102836"/><text x="600" y="704" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="14" font-weight="700" fill="#fff">External AI never replaces NOVA authority: it is routed, bounded, observed, and imported through proof.</text>
+</svg>

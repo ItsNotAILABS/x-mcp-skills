@@ -1,18 +1,28 @@
 {
-  "schema": "nova.external_connector_registry.v1",
+  "schema": "nova.external_connector_registry.v2",
   "authority": "ItsNotAILABS / NOVA",
   "truth_line": "External AI tools are worker surfaces connected through contracts, proof gates, and artifact handoffs.",
   "connectors": [
     {
       "id": "caffeine-mtp-bridge",
+      "name": "Caffeine CLI and MTP Bridge",
       "path": "skills/caffeine-mtp-bridge/SKILL.md",
+      "surface": "mtp",
       "surfaces": ["caffeine-cli", "caffeine-mtp", "caffeine-mcp"],
+      "authority": "Build, preview, check, and package bounded application work through Caffeine surfaces while NOVA retains import and proof authority.",
+      "inputs": ["bounded build request", "repository path", "allowed tools", "operator approval boundary"],
+      "outputs": ["tool discovery report", "build artifact", "preview status", "validation log", "artifact hash"],
       "proof_gates": ["auth status captured", "tool list captured", "artifact hash captured", "no fake deploy claim"]
     },
     {
       "id": "grok-build-bridge",
+      "name": "Grok Build Bridge",
       "path": "skills/grok-build-bridge/SKILL.md",
+      "surface": "api",
       "surfaces": ["grok-build", "mcp", "headless-agent"],
+      "authority": "Request external planning, implementation suggestions, review, and patch analysis without granting trunk authority.",
+      "inputs": ["task brief", "repository context", "approval boundary", "artifact return contract"],
+      "outputs": ["plan", "diff summary", "review notes", "verification notes", "handoff artifact"],
       "proof_gates": ["plan captured", "approval boundary recorded", "diff captured", "tests captured"]
     }
   ]
