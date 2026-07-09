@@ -1,0 +1,33 @@
+{
+  "schema": "nova.external_ai_connector_platform.v1",
+  "name": "External AI Connector Control Plane",
+  "market_position": "Multi-AI connector governance for teams using Caffeine, Grok Build, MCP servers, and future coding agents.",
+  "surfaces": [
+    {
+      "id": "caffeine-cli",
+      "type": "local-cli",
+      "actions": ["auth", "doctor", "install", "check", "preview"],
+      "proof_gates": ["auth status", "doctor output", "check output", "preview output", "no fake deploy claim"]
+    },
+    {
+      "id": "caffeine-mtp",
+      "type": "remote-tool-server",
+      "actions": ["discover tools", "submit build", "poll status", "import artifact"],
+      "proof_gates": ["server origin", "auth scope", "tool schema", "task id", "artifact hash"]
+    },
+    {
+      "id": "grok-build",
+      "type": "external-coding-agent",
+      "actions": ["plan", "approve", "patch", "test", "capture diff"],
+      "proof_gates": ["plan", "approval boundary", "diff", "test output", "handoff"]
+    },
+    {
+      "id": "generic-agent-server",
+      "type": "future-agent-adapter",
+      "actions": ["discover schema", "submit task", "poll", "download", "verify"],
+      "proof_gates": ["schema", "task id", "timeout", "retry", "artifact hash"]
+    }
+  ],
+  "product_views": ["connector dashboard", "task run viewer", "artifact import ledger", "proof gate board", "deployment readiness panel"],
+  "operator_inputs_needed": ["server URLs", "auth modes", "repo paths", "allowed tools", "test commands", "artifact destinations"]
+}
