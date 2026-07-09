@@ -1,0 +1,51 @@
+{
+  "schema": "nova.connector.caffeine.tool_list.v1",
+  "provider": "caffeine",
+  "surface": "hybrid",
+  "generated_at": "2026-07-08T00:00:00Z",
+  "authority": {
+    "tenant": "ItsNotAILABS",
+    "workspace": "nova-build",
+    "operator": "Codex Phantasmatis",
+    "scope": ["workspace:read", "workspace:write", "artifact:emit"]
+  },
+  "tools": [
+    {
+      "name": "caffeine.project.create",
+      "description": "Create a production project workspace from a governed NOVA product specification.",
+      "category": "project",
+      "input_schema": {
+        "type": "object",
+        "required": ["name", "template", "target_stack"],
+        "properties": {
+          "name": {"type": "string"},
+          "template": {"type": "string"},
+          "target_stack": {"type": "array", "items": {"type": "string"}}
+        }
+      },
+      "output_modes": ["json", "file", "terminal_log"],
+      "requires_confirmation": false,
+      "risk": "workspace_write",
+      "house_route": "Translatio",
+      "coherence_floor": 0.618
+    },
+    {
+      "name": "caffeine.deploy.prepare",
+      "description": "Prepare a deployment packet and return a manifest, release notes, and verification report.",
+      "category": "deploy",
+      "input_schema": {
+        "type": "object",
+        "required": ["workspace_path", "environment"],
+        "properties": {
+          "workspace_path": {"type": "string"},
+          "environment": {"type": "string", "enum": ["local", "staging", "production"]}
+        }
+      },
+      "output_modes": ["json", "zip", "test_report"],
+      "requires_confirmation": true,
+      "risk": "deploy",
+      "house_route": "Medina",
+      "coherence_floor": 0.7
+    }
+  ]
+}

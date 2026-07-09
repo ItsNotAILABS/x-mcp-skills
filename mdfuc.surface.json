@@ -1,0 +1,21 @@
+{
+  "schema": "medina.mdfuc.surface.v1",
+  "repo": "ItsNotAILABS/x-mcp-skills",
+  "role": "MCP and external AI connector skills",
+  "nexus_registry": "ItsNotAILABS/nexus",
+  "upstream_contracts": [
+    "ItsNotAILABS/nova-intelligence",
+    "ItsNotAILABS/PhantomSDK"
+  ],
+  "active_skills": [
+    "skills/caffeine-mtp-bridge/SKILL.md",
+    "skills/grok-build-bridge/SKILL.md"
+  ],
+  "proof_gates": [
+    "skill has purpose and boundary law",
+    "connector registry references skill path",
+    "external tool proof gates are named",
+    "deployment claims require artifact proof"
+  ],
+  "next_gate": "Add connector-run artifact schema after Caffeine MTP server contract is known"
+}
