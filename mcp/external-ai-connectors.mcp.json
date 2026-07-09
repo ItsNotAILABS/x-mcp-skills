@@ -1,0 +1,56 @@
+{
+  "schema": "mcp.external_ai_connectors.server.v1",
+  "name": "NOVA External AI Connector Control Plane",
+  "description": "MCP-style contract for discovering, describing, routing, invoking, and importing artifacts from external AI worker surfaces.",
+  "resources": [
+    {
+      "uri": "nova://external-ai/connectors/registry",
+      "name": "External AI Connector Registry",
+      "path": "connector-registry.json"
+    },
+    {
+      "uri": "nova://external-ai/connectors/catalog",
+      "name": "Connector Catalog",
+      "path": "docs/CONNECTOR_CATALOG.md"
+    },
+    {
+      "uri": "nova://external-ai/connectors/readiness",
+      "name": "Production Readiness Guide",
+      "path": "docs/PRODUCTION_READINESS.md"
+    }
+  ],
+  "tools": [
+    {
+      "name": "external_ai_connectors.list",
+      "input_schema": {},
+      "output": "List registered external AI connectors."
+    },
+    {
+      "name": "external_ai_connectors.describe",
+      "input_schema": {
+        "connector_id": "string"
+      },
+      "output": "Return connector authority, surfaces, inputs, outputs, and proof gates."
+    },
+    {
+      "name": "external_ai_connectors.route_plan",
+      "input_schema": {
+        "task": "string",
+        "target_surface": "string",
+        "risk_level": "string"
+      },
+      "output": "Recommended connector with permission boundary and proof gates."
+    },
+    {
+      "name": "external_ai_connectors.import_artifact",
+      "input_schema": {
+        "connector_id": "string",
+        "artifact_url": "string",
+        "sha256": "string",
+        "validation_status": "string"
+      },
+      "output": "Artifact import manifest."
+    }
+  ],
+  "proof_gates": ["connector id exists", "permission boundary recorded", "artifact evidence captured", "NOVA import approval"]
+}
