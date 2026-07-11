@@ -15,6 +15,13 @@ The external AI does not become the platform. NOVA keeps the registry, routing a
 ## Search Keywords
 
 External AI connector platform, MCP connector registry, AI worker surface control plane, Caffeine MCP bridge, Grok Build connector, Claude Code bridge, Cursor IDE AI workflow, browser workbench AI platform, service worker AI workbench, AI artifact proof gate, NOVA Build connectors.
+![NOVA External AI Connector Control Plane](assets/connector-control-plane.svg)
+
+## Product Thesis
+
+Teams are going to use many AI coding workers: Caffeine, Grok Build, Codex, local agents, MCP/MTP servers, and whatever comes next. The problem is not whether those tools can produce output. The problem is preserving scope, proof, artifact lineage, deployment truth, and customer-safe claims across all of them.
+
+This repo is the connector skill and registry layer for that control plane.
 
 ## MDFUC Role
 
@@ -44,8 +51,17 @@ See [docs/CONNECTOR_CATALOG.md](docs/CONNECTOR_CATALOG.md) for the full connecto
 ## Repository Map
 
 - `connector-registry.json` — machine-readable connector contract with authority, inputs, outputs, and proof gates.
-- `mcp/external-ai-connectors.mcp.json` — MCP-style resource/tool contract for connector discovery and import.
-- `skills/` — connector skills for each external AI worker surface.
+- `skills/caffeine-mtp-bridge/SKILL.md` — Caffeine CLI and Caffeine MTP/MCP-style server bridge.
+- `skills/grok-build-bridge/SKILL.md` — Grok Build bridge for external planning, patching, review, MCP usage, and artifact handoff.
+- `connector-registry.json` — machine-readable registry for connector discovery.
+- `platform/external-ai-connector-platform.json` — product/platform manifest.
+
+## Research + Product Docs
+
+- `research/FOUR_EXTERNAL_AI_CONNECTOR_SURFACES.md` — deep connector surface paper.
+- `docs/CONNECTOR_CONTROL_PLANE_WORKING_PAPER.md` — production working paper.
+- `docs/PRODUCTION_READINESS.md` — market and demo readiness guide.
+- `assets/connector-control-plane.svg` — architecture image.
 - `mdfuc.surface.json` — repo-family role and proof gates.
 - `tools/validate_connector_registry.py` — dependency-free validation gate.
 - `docs/CONNECTOR_CATALOG.md` — connector catalog, search phrases, topics, and use cases.
@@ -96,6 +112,24 @@ The manifest in `mcp/external-ai-connectors.mcp.json` defines:
 - `external_ai_connectors.route_plan`
 - `external_ai_connectors.import_artifact`
 
+## Validation
+
+```bash
+python tools/validate_connector_registry.py
+```
+
+## Market-Ready Offer
+
+Use Caffeine, Grok Build, MCP/MTP servers, and future AI workers without losing proof, scope, artifact lineage, or deployment truth.
+
+## Next Build
+
+The next production slice is a small MCP-compatible server that exposes:
+
+- `connectors.list`
+- `connectors.plan_run`
+- `connectors.import_artifact`
+- `connectors.verify_run`
 ## Operating Law
 
 - External AIs are worker surfaces, not crown authority.

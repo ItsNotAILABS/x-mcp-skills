@@ -1,3 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">NOVA External AI Connector Control Plane</title>
+  <desc id="desc">Architecture diagram showing NOVA routing work to Caffeine CLI, Caffeine MTP/MCP, Grok Build, and generic agent servers through proof gates and artifact import.</desc>
+  <rect width="1200" height="720" fill="#f6f7f3"/>
+  <rect x="60" y="60" width="1080" height="600" rx="16" fill="#ffffff" stroke="#26322d" stroke-width="2"/>
+  <text x="90" y="112" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700" fill="#121713">NOVA External AI Connector Control Plane</text>
+  <text x="90" y="146" font-family="Inter, Arial, sans-serif" font-size="16" fill="#506058">External AI tools execute as worker surfaces. NOVA keeps routing, proof, artifacts, and deployment truth.</text>
+  <rect x="455" y="250" width="290" height="150" rx="12" fill="#13231b"/>
+  <text x="600" y="306" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700" fill="#ffffff">NOVA</text>
+  <text x="600" y="337" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="15" fill="#d7e6dd">Route • Proof • Import • Promote</text>
+  <text x="600" y="366" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" fill="#9fc5b3">connector-registry.json</text>
+  <g font-family="Inter, Arial, sans-serif">
+    <rect x="95" y="215" width="250" height="104" rx="10" fill="#e7efe9" stroke="#5e766a"/>
+    <text x="220" y="252" text-anchor="middle" font-size="20" font-weight="700" fill="#1f3329">Caffeine CLI</text>
+    <text x="220" y="280" text-anchor="middle" font-size="13" fill="#425348">auth • doctor • check • preview</text>
+    <rect x="95" y="405" width="250" height="104" rx="10" fill="#eef0fa" stroke="#6870a0"/>
+    <text x="220" y="442" text-anchor="middle" font-size="20" font-weight="700" fill="#20284c">Caffeine MTP/MCP</text>
+    <text x="220" y="470" text-anchor="middle" font-size="13" fill="#4c5378">discover • submit • poll • import</text>
+    <rect x="855" y="215" width="250" height="104" rx="10" fill="#f2ece4" stroke="#9a7653"/>
+    <text x="980" y="252" text-anchor="middle" font-size="20" font-weight="700" fill="#4b321d">Grok Build</text>
+    <text x="980" y="280" text-anchor="middle" font-size="13" fill="#674b32">plan • approve • patch • verify</text>
+    <rect x="855" y="405" width="250" height="104" rx="10" fill="#f0e8ec" stroke="#986b7f"/>
+    <text x="980" y="442" text-anchor="middle" font-size="20" font-weight="700" fill="#4b2435">Generic Agent Server</text>
+    <text x="980" y="470" text-anchor="middle" font-size="13" fill="#6d4055">schema • task • artifact • hash</text>
+  </g>
+  <g stroke="#26322d" stroke-width="2.5" fill="none" marker-end="url(#arrow)">
+    <path d="M345 267 C410 267 410 306 455 306"/>
+    <path d="M345 457 C410 457 410 365 455 365"/>
+    <path d="M745 306 C790 306 790 267 855 267"/>
+    <path d="M745 365 C790 365 790 457 855 457"/>
+  </g>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#26322d"/></marker></defs>
+  <rect x="210" y="570" width="780" height="50" rx="8" fill="#f4f5ef" stroke="#c7cdc4"/>
+  <text x="600" y="601" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="16" fill="#2f3833">Proof gates: origin • auth scope • tool schema • task id • artifact hash • verification report</text>
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
   <title id="title">NOVA External AI Connector Control Plane</title>
   <desc id="desc">Architecture diagram showing NOVA routing external AI worker surfaces through registry, policy, proof, and artifact import gates.</desc>
