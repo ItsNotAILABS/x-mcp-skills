@@ -1,6 +1,10 @@
 # NOVA External AI Connector Control Plane
 
-NOVA connector skills for external AI worker surfaces.
+![NOVA External AI Connector Control Plane](assets/connector-control-plane.svg)
+
+NOVA External AI Connector Control Plane turns Caffeine, Grok Build, Claude, Cursor, Antigravity, CLIs, IDEs, browser workbenches, and MCP/MTP servers into governed worker surfaces.
+
+The external AI does not become the platform. NOVA keeps the registry, routing authority, permission boundary, proof gate, artifact import, and deployment truth line.
 
 ![NOVA External AI Connector Control Plane](assets/connector-control-plane.svg)
 
@@ -22,6 +26,14 @@ It reports to:
 
 ## Current Connectors
 
+| Connector | Surface | Purpose |
+| --- | --- | --- |
+| Caffeine CLI and MTP Bridge | CLI / MTP / MCP | Build, preview, check, and package bounded app work |
+| Grok Build Bridge | API / MCP / headless agent | Plan, patch, review, and return artifacts through proof gates |
+
+## Repository Map
+
+- `connector-registry.json` — machine-readable connector contract with authority, inputs, outputs, and proof gates.
 - `skills/caffeine-mtp-bridge/SKILL.md` — Caffeine CLI and Caffeine MTP/MCP-style server bridge.
 - `skills/grok-build-bridge/SKILL.md` — Grok Build bridge for external planning, patching, review, MCP usage, and artifact handoff.
 - `connector-registry.json` — machine-readable registry for connector discovery.
@@ -33,12 +45,18 @@ It reports to:
 - `docs/CONNECTOR_CONTROL_PLANE_WORKING_PAPER.md` — production working paper.
 - `docs/PRODUCTION_READINESS.md` — market and demo readiness guide.
 - `assets/connector-control-plane.svg` — architecture image.
+- `mdfuc.surface.json` — repo-family role and proof gates.
+- `tools/validate_connector_registry.py` — dependency-free validation gate.
+- `docs/CONNECTOR_CONTROL_PLANE_WORKING_PAPER.md` — working paper for the architecture.
+- `docs/PRODUCTION_READINESS.md` — readiness levels and launch gates.
 
-## Operating Law
+## Quick Start
 
-External AIs are worker surfaces. NOVA keeps routing authority, proof gates, artifact import, and deployment truth line.
+Validate the connector registry:
 
-## First Use
+```bash
+python tools/validate_connector_registry.py
+```
 
 For Caffeine CLI:
 
@@ -54,10 +72,10 @@ caffeine preview --build
 For Caffeine MTP/MCP:
 
 1. Provide server URL and auth mode.
-2. Discover tools/resources/prompts.
+2. Discover tools, resources, and prompts.
 3. Capture `tool-discovery.json`.
-4. Submit build request.
-5. Import artifact hash into NOVA.
+4. Submit a bounded build request.
+5. Import artifact hash into NOVA only after validation.
 
 For Grok Build:
 
@@ -85,3 +103,20 @@ The next production slice is a small MCP-compatible server that exposes:
 - `connectors.plan_run`
 - `connectors.import_artifact`
 - `connectors.verify_run`
+## Operating Law
+
+- External AIs are worker surfaces, not crown authority.
+- NOVA owns routing, proof gates, artifact import, and deployment truth line.
+- No connector can claim completion without returned evidence.
+- Direct trunk mutation requires explicit operator approval and proof.
+- The LLM should help the product, not overshadow the product.
+
+## Readiness
+
+Current status:
+
+- Caffeine and Grok connector contracts are registered and documented.
+- Registry validation is available.
+- Live callable adapters require operator-provided credentials, endpoints, and exact tool contracts.
+
+Next build: add `connectorctl`, CI validation, live MCP discovery capture, and a dashboard for connector readiness and artifact import.
