@@ -6,6 +6,14 @@ NOVA External AI Connector Control Plane turns Caffeine, Grok Build, Claude, Cur
 
 The external AI does not become the platform. NOVA keeps the registry, routing authority, permission boundary, proof gate, artifact import, and deployment truth line.
 
+![NOVA External AI Connector Control Plane](assets/connector-control-plane.svg)
+
+## Product Thesis
+
+Teams are going to use many AI coding workers: Caffeine, Grok Build, Codex, local agents, MCP/MTP servers, and whatever comes next. The problem is not whether those tools can produce output. The problem is preserving scope, proof, artifact lineage, deployment truth, and customer-safe claims across all of them.
+
+This repo is the connector skill and registry layer for that control plane.
+
 ## MDFUC Role
 
 `x-mcp-skills` owns MCP and external AI connector skills inside the Medina Development Federation Unified Catalog.
@@ -28,6 +36,15 @@ It reports to:
 - `connector-registry.json` — machine-readable connector contract with authority, inputs, outputs, and proof gates.
 - `skills/caffeine-mtp-bridge/SKILL.md` — Caffeine CLI and Caffeine MTP/MCP-style server bridge.
 - `skills/grok-build-bridge/SKILL.md` — Grok Build bridge for external planning, patching, review, MCP usage, and artifact handoff.
+- `connector-registry.json` — machine-readable registry for connector discovery.
+- `platform/external-ai-connector-platform.json` — product/platform manifest.
+
+## Research + Product Docs
+
+- `research/FOUR_EXTERNAL_AI_CONNECTOR_SURFACES.md` — deep connector surface paper.
+- `docs/CONNECTOR_CONTROL_PLANE_WORKING_PAPER.md` — production working paper.
+- `docs/PRODUCTION_READINESS.md` — market and demo readiness guide.
+- `assets/connector-control-plane.svg` — architecture image.
 - `mdfuc.surface.json` — repo-family role and proof gates.
 - `tools/validate_connector_registry.py` — dependency-free validation gate.
 - `docs/CONNECTOR_CONTROL_PLANE_WORKING_PAPER.md` — working paper for the architecture.
@@ -68,6 +85,24 @@ For Grok Build:
 4. Capture diff and verification output.
 5. Import artifacts into NOVA.
 
+## Validation
+
+```bash
+python tools/validate_connector_registry.py
+```
+
+## Market-Ready Offer
+
+Use Caffeine, Grok Build, MCP/MTP servers, and future AI workers without losing proof, scope, artifact lineage, or deployment truth.
+
+## Next Build
+
+The next production slice is a small MCP-compatible server that exposes:
+
+- `connectors.list`
+- `connectors.plan_run`
+- `connectors.import_artifact`
+- `connectors.verify_run`
 ## Operating Law
 
 - External AIs are worker surfaces, not crown authority.
